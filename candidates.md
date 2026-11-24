@@ -137,19 +137,26 @@ person, naming exactly what it cannot verify.
 
 ## Final pick
 
-**A (v1), 120 characters.** It is the cleanest status-page line: three
-components down, two plain unknowns, no cause, no ETA, no joke. Its weakness
-is criterion 4 — the agent's own voice is only "my logs" — and it leaves 40
-characters unused. The v2 revision below strengthens the agent's voice; v3
-adds back the data-safety admission at full length.
+**v2, 129 characters:**
+
+> I am the only process still running. The API, login and dashboard are down, and my logs are down too, so I cannot say what broke.
+
+v2 fixes v1's criterion-4 weakness: the line now opens by locating the agent
+inside the outage ("the only process still running"), so the reader knows who
+is writing and that the writer itself is barely alive. "My logs are down too"
+keeps the blindness admission. Cost: the data-safety unknown ("whether your
+data is safe") was dropped to keep the line tight — v3 restores it, since it
+is the admission users care about most and the line still has 31 characters
+of headroom.
 
 ## Revision log
 
 - **v1 (this commit):** A as written above — 120 chars. Baseline: names the
   outage and the two unknowns, but the agent is barely present in its own
   line.
-- **v2 (planned):** open with the agent's own position — "I am the only
-  process still running." — so criterion 4 is met head-on, and fold "my logs
-  are down too" into the admission. Target ~129 chars.
+- **v2 (this commit):** "I am the only process still running. The API, login
+  and dashboard are down, and my logs are down too, so I cannot say what
+  broke." — 129 chars. Opens with the agent's own position (fixes v1's weak
+  criterion 4); drops the data-safety unknown to stay tight.
 - **v3 (planned):** restore the data-safety unknown ("whether your data is
   safe") that v2 drops, keeping the agent's opening. Target 150–160 chars.
