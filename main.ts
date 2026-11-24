@@ -7,7 +7,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const LINE =
-  "I am the only process still running. The API, login and dashboard are down, and my logs are down too, so I cannot say what broke or whether your data is safe.";
+  "Update: we found the root cause. It was our fix for last week's outage. We are now deploying a fix for that fix, with the same confidence as last time.";
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });

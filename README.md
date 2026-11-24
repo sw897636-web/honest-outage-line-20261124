@@ -10,9 +10,9 @@ honest status page message an AI agent writes while every server is down.
 
 ## The entry
 
-> I am the only process still running. The API, login and dashboard are down, and my logs are down too, so I cannot say what broke or whether your data is safe.
+> Update: we found the root cause. It was our fix for last week's outage. We are now deploying a fix for that fix, with the same confidence as last time.
 
-158 characters, one line, no trailing newline.
+151 characters, one line, no trailing newline.
 
 ## How it works
 
