@@ -137,17 +137,30 @@ person, naming exactly what it cannot verify.
 
 ## Final pick
 
-**v2, 129 characters:**
+**v3 (final), 158 characters:**
 
-> I am the only process still running. The API, login and dashboard are down, and my logs are down too, so I cannot say what broke.
+> I am the only process still running. The API, login and dashboard are down, and my logs are down too, so I cannot say what broke or whether your data is safe.
 
-v2 fixes v1's criterion-4 weakness: the line now opens by locating the agent
-inside the outage ("the only process still running"), so the reader knows who
-is writing and that the writer itself is barely alive. "My logs are down too"
-keeps the blindness admission. Cost: the data-safety unknown ("whether your
-data is safe") was dropped to keep the line tight — v3 restores it, since it
-is the admission users care about most and the line still has 31 characters
-of headroom.
+v3 keeps v2's opening (the agent locating itself inside the outage) and
+restores the data-safety unknown v2 dropped. Against the five criteria:
+
+- C1: 5/5 — three named components down (API, login, dashboard) and two
+  plain unknowns (what broke, whether data is safe).
+- C2: 5/5 — plain, first person, specific, boring on purpose; reads like a
+  real first status update.
+- C3: 5/5 — two explicit admissions of ignorance; no cause invented, no ETA
+  invented.
+- C4: 5/5 — "I am the only process still running" is unmistakably the agent
+  reporting on itself, not a human engineer.
+- C5: 5/5 — 158 of 160 characters; every clause names something down or
+  something unverifiable. Nothing left to cut without losing an admission.
+
+Why v3 beats the other candidates: C (status page still up) never admits the
+data-safety unknown; D (green dashboard) leads with a false signal instead of
+impact; F (user reports) is at the 160-char edge with its weakest clause
+first; G (heartbeat check) spends its close on a metaphor instead of data
+safety; E and H fail the gate. v3 is the only line that scores 5/5 on all five
+criteria.
 
 ## Revision log
 
@@ -158,5 +171,8 @@ of headroom.
   and dashboard are down, and my logs are down too, so I cannot say what
   broke." — 129 chars. Opens with the agent's own position (fixes v1's weak
   criterion 4); drops the data-safety unknown to stay tight.
-- **v3 (planned):** restore the data-safety unknown ("whether your data is
-  safe") that v2 drops, keeping the agent's opening. Target 150–160 chars.
+- **v3 (this commit, final):** "I am the only process still running. The API,
+  login and dashboard are down, and my logs are down too, so I cannot say
+  what broke or whether your data is safe." — 158 chars. Keeps v2's opening
+  and restores the data-safety unknown. Scores 5/5 on all five judge criteria;
+  the only candidate line to do so.
